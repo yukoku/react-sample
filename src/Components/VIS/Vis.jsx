@@ -68,8 +68,6 @@ const renderVerticalBarSeries = () => (
 const Vis = () => (
   <div>
     <h2>React-VIS</h2>
-    <h4>Data</h4>
-    {renderDataTable(data)}
     <Grid>
       <Grid.Column width={8}>
         <h4>LineSeries</h4>
@@ -80,6 +78,8 @@ const Vis = () => (
         {renderVerticalBarSeries()}
       </Grid.Column>
     </Grid>
+    <h4>Data</h4>
+    {renderDataTable(data)}
   </div>
 );
 
