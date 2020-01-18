@@ -33,9 +33,9 @@ const renderDataTable = (data) => (
       </Table.Row>
     </Table.Header>
     <Table.Body>
-        {data.map(d => {
+        {data.map((d, i) => {
           return (
-            <Table.Row>
+            <Table.Row key={`vis-data-${i}`}>
               <Table.Cell>{d.x}</Table.Cell>
               <Table.Cell>{d.y}</Table.Cell>
             </Table.Row>

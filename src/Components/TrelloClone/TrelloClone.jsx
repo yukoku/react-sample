@@ -81,9 +81,9 @@ export default class TrelloClone extends React.Component {
       <div>
         <h2 className={css.title}>Trello Clone <Icon name='home' color='teal' /></h2>
         {this.renderCreateBoardModal((<Button basic color='green' content='Create a new board...' onClick={this.handleOpenModal} />))}
-        {this.state.cards.map(card => {
+        {this.state.cards.map((card, i) => {
           return (
-            <BoardCard card={card} />
+            <BoardCard key={`board-card-${i}`} card={card} />
           );
         })}
       </div>

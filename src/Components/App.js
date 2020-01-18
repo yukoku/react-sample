@@ -19,28 +19,28 @@ const App = () => (
     <Grid>
       <Grid.Column width={4}>
       <Menu fluid vertical tabular>
-        {apps.map(obj => {
+        {apps.map((obj, i) => {
           if(obj.menu){
             return (
-              <>
+              <React.Fragment key={`menu-item-${i}`}>
                 <Menu.Item><Link to={obj.route}>{obj.name}</Link></Menu.Item>
                 <Divider />
-              </>
+              </React.Fragment>
             );
           }
         })}
       </Menu>
       </Grid.Column>
-      <Grid.Column streched width={12}>
+      <Grid.Column width={12}>
         <Segment>
-          {apps.map(obj => {
+          {apps.map((obj, i) => {
             if(obj.name === 'Home'){
               return (
-                <Route exact path='/' component={Home} />
+                <Route key={`route-${i}`} exact path='/' component={Home} />
               );
             }else{
               return (
-                <Route path={obj.route} component={obj.component} />
+                <Route key={`route-${i}`} path={obj.route} component={obj.component} />
               );
             }
           })}
