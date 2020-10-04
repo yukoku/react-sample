@@ -3,13 +3,14 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { Grid, Menu, Segment, Divider } from 'semantic-ui-react';
 import Home from './Home/Home';
 import TrelloClone from './TrelloClone/TrelloClone';
+import TrelloCard from './TrelloClone/TrelloCard';
 import UserDashboard from './UserDashboard/UserDashboard';
 import Vis from './VIS/Vis';
 
 const apps = [
   {name: 'Home', route: '/', component: Home, menu: true},
   {name: 'Trello Clone', route: '/trello-clone', component: TrelloClone, menu: true},
-  {name: 'Trello Clone', route: '/trello-clone-board/:id', component: TrelloClone },
+  {name: 'Trello Clone', route: '/trello-clone-board/:id', component: TrelloCard },
   {name: 'User Dashboard', route: '/user-dashboard', component: UserDashboard, menu: true},
   {name: 'React VIS', route: '/react-vis', component: Vis, menu: true},
 ]
