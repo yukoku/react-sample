@@ -1,28 +1,9 @@
 import React from 'react'
-import { Button, Icon, Card, Modal, Divider, Form, Input} from 'semantic-ui-react';
-import { withRouter } from 'react-router-dom'
+import { Button, Icon, Modal, Divider, Form, Input} from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
 import css from './TrelloClone.scss';
-
-class Board {
-  constructor(id, name){
-    this.id = id;
-    this.name = name;
-    this.route = `/trello-clone-board/${id}`;
-  }
-}
-
-class CardWrapper extends React.Component {
-  handleLink = () => {
-    this.props.history.push(this.props.card.route);
-  }
-  render() {
-    return (
-      <Card description={this.props.card.name} onClick={this.handleLink} />
-    );
-  }
-}
-
-const BoardCard = withRouter(CardWrapper);
+import Board from './Board';
+import BoardCard from './BoardCard';
 
 export default class TrelloClone extends React.Component {
   constructor(){
@@ -79,7 +60,7 @@ export default class TrelloClone extends React.Component {
   render(){
     return (
       <div>
-        <h2 className={css.title}>Trello Clone <Icon name='home' color='teal' /></h2>
+        <h2 className={css.title}><Link to={'/trello-clone'} >Trello Clone <Icon name='home' color='teal' /></Link></h2>
         {this.renderCreateBoardModal((<Button basic color='green' content='Create a new board...' onClick={this.handleOpenModal} />))}
         {this.state.cards.map((card, i) => {
           return (
